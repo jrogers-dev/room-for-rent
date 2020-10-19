@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+    # Include default devise modules. Others available are:
+    # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+    devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+
     #The following associations allow a user to "own" or "rent" a property through
     #foreign keys in the Property class, making them a Landlord or Tenant and 
     #associating them with other Users through owned or rented properties 
