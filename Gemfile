@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 
 # Omniauth provider gems
-gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 
 
