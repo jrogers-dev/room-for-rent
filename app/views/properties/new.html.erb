@@ -1,0 +1,49 @@
+<h2>List a New Property</h2>
+<br>
+<%= form_for(@property, url: properties_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @property %>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rooms %><br />
+    <%= f.number_field :rooms %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bathrooms %><br />
+    <%= f.number_field :bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= f.label :squarefeet %><br />
+    <%= f.number_field :squarefeet %>
+  </div>
+
+  <div class="field">
+    <%= f.label :storeys %><br />
+    <%= f.number_field :storeys %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rent %><br />
+    <%= f.number_field :rent %>
+  </div>
+
+  <div class="field">
+    <%= f.label :available %><br />
+    <%= f.check_box :available %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Property" %>
+  </div>
+<% end %>
