@@ -17,3 +17,6 @@ if the user viewing the property is also the owner. -->
     <%= link_to "Message Owner", { controller: "messages", action: "new", user_id: current_user.id, recipient_id: @property.landlord_id }, method: "get"%>
     <!--<%= button_to "Apply", property_path(@property), method: "get" %>-->
 <% end %>
+<br />
+<%= button_to "Return to Dashboard", user_root_path, method: "get" %>
+<%= button_to "Logout", destroy_user_session_path, method: "delete" %>

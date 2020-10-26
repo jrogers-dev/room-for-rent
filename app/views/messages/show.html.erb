@@ -1,2 +1,8 @@
-<h3><%= User.find(@message.sender_id).name %></h3><br>
+<h2>Your Message</h2>
+<hr>
+<h4>From: <%= User.find(@message.sender_id).name %></h4>
 <p><%= @message.message_content %></p>
+<hr>
+<br />
+<%= button_to "Return to Dashboard", user_root_path, method: "get" %>
+<%= button_to "Logout", destroy_user_session_path, method: "delete" %>

@@ -1,7 +1,8 @@
 <h2>My Profile and Account Settings</h2>
+
 Name: <%= current_user.name %>
 <br>
 Email: <%= current_user.email %>
-<br><br>
+<br /><br />
 <%= button_to "Return to Dashboard", user_root_path, method: "get" %>
 <%= button_to "Logout", destroy_user_session_path, method: "delete" %>

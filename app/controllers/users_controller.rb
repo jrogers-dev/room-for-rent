@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
     before_action :authenticate_user!
 
     # Shows User's profile
@@ -19,12 +18,6 @@ class UsersController < ApplicationController
 
     # The dashboard serves as a main hub for accessing site features
     def dashboard
-
-    end
-
-    # Logs the user out and deletes their information from the database
-    # unless they are currently renting or leasing a property
-    def destroy
 
     end
 
