@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_034616) do
+ActiveRecord::Schema.define(version: 2020_10_26_082937) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id", null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_034616) do
     t.boolean "read"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "application"
+    t.integer "property_id"
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end

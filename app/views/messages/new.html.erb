@@ -6,11 +6,13 @@
   <div class="field">
     <%= f.hidden_field :sender_id, value: params[:user_id] %>
     <%= f.hidden_field :recipient_id, value: params[:recipient_id] %>
+    <%= f.hidden_field :application, value: params[:application] %>
+    <%= f.hidden_field :property_id, value: params[:property_id] %>
   </div>
 
   <div class="field">
     <%= f.label :message_content %><br />
-    <%= f.text_field :message_content %>
+    <%= f.text_area :message_content %>
   </div>
 
   <div class="actions">
@@ -20,3 +22,4 @@
 <br />
 <%= button_to "Return to Dashboard", user_root_path, method: "get" %>
 <%= button_to "Logout", destroy_user_session_path, method: "delete" %>
+<%= params %>
