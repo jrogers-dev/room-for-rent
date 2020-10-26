@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
 
     def show
         @message = Message.find(params[:id])
+        @property = Property.find(@message.property_id)
     end
 
     def new
@@ -15,7 +16,7 @@ class MessagesController < ApplicationController
 
     def create
         @message = Message.create!(message_params)
-        redirect_to "/users/#{current_user.id}/messages/#{@message.id}"
+        redirect_to property_path(@message.property_id)
     end
 
     private

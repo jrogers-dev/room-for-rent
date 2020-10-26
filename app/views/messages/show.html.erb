@@ -2,6 +2,20 @@
 <hr>
 <h4>From: <%= User.find(@message.sender_id).name %></h4>
 <p><%= @message.message_content %></p>
+<% if @message.application %>
+    <!--<%= link_to "Approve Application", property_path(@message.property_id, property: {tenant_id: 12 }), method: "put" %>-->
+    <%= form_for(@property, url: property_path(@property)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: @property %>
+
+        <div class="field">
+            <%= f.hidden_field :tenant_id, value: @message.sender_id %>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Approve Application" %>
+        </div>
+    <% end %>
+<% end %>
 <hr>
 <br />
 <%= button_to "Return to Dashboard", user_root_path, method: "get" %>
