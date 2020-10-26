@@ -19,6 +19,13 @@ class User < ApplicationRecord
     has_many :rented_properties, class_name: "Property", foreign_key: "tenant_id"
     has_many :landlords, through: :rented_properties
 
+    
+    has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
+    has_many :recipients, through: :sent_messages
+
+    has_many :received_messages, class_name: "Message", foreign_key: "recipient_id"
+    has_many :senders, through: :received_messages
+
     def self.from_omniauth(access_token)
         data = access_token.info
         user = User.where(email: data["email"]).first
