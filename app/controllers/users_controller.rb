@@ -24,4 +24,8 @@ class UsersController < ApplicationController
     def my_properties
         
     end
+
+    def magnate
+        @magnate = User.magnate
+    end
 end

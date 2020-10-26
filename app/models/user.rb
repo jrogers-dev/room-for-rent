@@ -39,4 +39,6 @@ class User < ApplicationRecord
         end
         user
     end
+
+    scope :magnate, -> { User.all.sort { |a, b| a.owned_properties.count <=> b.owned_properties.count }.last }
 end
