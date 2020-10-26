@@ -1,11 +1,13 @@
 class PropertiesController < ApplicationController
+    before_action :authenticate_user!
+    before_action :find_property, only: [:show, :edit, :update, :destroy]
     
     def index
 
     end
 
     def show
-        @property = Property.find(params[:id])
+
     end
 
 
@@ -22,16 +24,17 @@ class PropertiesController < ApplicationController
 
 
     def edit
-        
+
     end
 
     def update
-
+        @property.update(property_params)
+        redirect_to property_path(@property)
     end
 
 
     def destroy
-        @property = Property.find(params[:id]).destroy
+        @property.destroy
         redirect_to "/users/my_properties"
     end
 
@@ -39,5 +42,9 @@ class PropertiesController < ApplicationController
 
     def property_params
         params.require(:property).permit(:landlord_id, :address, :rooms, :bathrooms, :squarefeet, :storeys, :rent, :description, :available)
+    end
+
+    def find_property
+        @property = Property.find(params[:id])
     end
 end
