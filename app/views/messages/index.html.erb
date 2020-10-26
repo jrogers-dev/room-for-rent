@@ -1,0 +1,7 @@
+<%= button_to "Return to Dashboard", user_root_path, method: "get" %>
+<%= button_to "Compose New Message", new_user_message_path, method: "get" %>
+<br>
+
+<% current_user.received_messages.each do |m| %>
+    <%= link_to User.find(m.sender_id).name, "/users/#{m.sender_id}/messages/#{m.id}" %>
+<% end %>

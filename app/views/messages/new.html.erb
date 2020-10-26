@@ -1,0 +1,19 @@
+<h2>Compose a New Message</h2>
+<br />
+<%= form_for(@message, url: user_messages_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @message %>
+
+  <div class="field">
+    <%= f.label :recipient_id %><br />
+    <%= f.text_field :recipient_id, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message_content %><br />
+    <%= f.text_field :message_content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send Message" %>
+  </div>
+<% end %>
