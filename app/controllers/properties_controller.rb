@@ -14,8 +14,7 @@ class PropertiesController < ApplicationController
     end
 
     def create
-        params.require(:property).permit!
-        @property = Property.new(params[:property])
+        @property = Property.new(property_params)
         @property.landlord_id = current_user.id
         @property.save!
         redirect_to property_path(@property)
@@ -32,6 +31,13 @@ class PropertiesController < ApplicationController
 
 
     def destroy
+        @property = Property.find(params[:id]).destroy
+        redirect_to "/users/my_properties"
+    end
 
+    private
+
+    def property_params
+        params.require(:property).permit(:landlord_id, :address, :rooms, :bathrooms, :squarefeet, :storeys, :rent, :description, :available)
     end
 end

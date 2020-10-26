@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
   get '/users/dashboard' => 'users#dashboard', as: :user_root # creates user_root_path
+  get '/users/my_properties' => 'users#my_properties'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions', 
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   
-
   resources :users do
     resources :messages
   end
-  
+
   resources :properties
   resources :home, only: :index
 

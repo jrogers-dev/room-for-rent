@@ -6,6 +6,14 @@ Bathrooms: <%= @property.bathrooms %><br>
 Squarefootage: <%= @property.squarefeet %><br>
 Rent: <%= @property.rent %><br>
 Currently Available: <%= @property.available %><br>
-Description: <%= @property.description %><br>
+Description: <%= @property.description %><br><br>
 <!-- Add conditionally shown buttons to edit the property
 if the user viewing the property is also the owner. -->
+<% if current_user.id == @property.landlord_id %>
+    <%= button_to "Edit", edit_property_path(@property), method: "get" %>
+    <%= button_to "Delete", property_path(@property), method: "delete" %>
+<% else %>
+
+    <%= link_to "Message Owner", { controller: "messages", action: "new", user_id: current_user.id, recipient_id: @property.landlord_id }, method: "get"%>
+    <!--<%= button_to "Apply", property_path(@property), method: "get" %>-->
+<% end %>

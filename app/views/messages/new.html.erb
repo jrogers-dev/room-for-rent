@@ -4,8 +4,8 @@
   <%= render "devise/shared/error_messages", resource: @message %>
 
   <div class="field">
-    <%= f.label :recipient_id %><br />
-    <%= f.text_field :recipient_id, autofocus: true %>
+    <%= f.hidden_field :sender_id, value: params[:user_id] %>
+    <%= f.hidden_field :recipient_id, value: params[:recipient_id] %>
   </div>
 
   <div class="field">
@@ -17,3 +17,5 @@
     <%= f.submit "Send Message" %>
   </div>
 <% end %>
+
+<%= params %>

@@ -27,4 +27,8 @@ class UsersController < ApplicationController
     def destroy
 
     end
+
+    def my_properties
+        
+    end
 end
