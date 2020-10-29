@@ -1,7 +1,8 @@
 <h2>Inbox Messages</h2>
 
 <% current_user.received_messages.each do |m| %>
-    <%= link_to User.find(m.sender_id).name, "/users/#{m.sender_id}/messages/#{m.id}" %>
+    <%= link_to User.find(m.sender_id).email, "/users/#{m.sender_id}/messages/#{m.id}" %>
+    <br />
 <% end %>
 
 <br /><br />

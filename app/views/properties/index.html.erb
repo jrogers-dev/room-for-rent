@@ -1,12 +1,14 @@
 <h2>Available Properties</h2>
 
 <% Property.all.each do |p| %>
-    <%= link_to p.address, property_path(p.id) %>
-    <br>
-    Rooms: <%= p.rooms %> , Bathrooms: <%= p.bathrooms %>
-    <br>
-    Size: <%= p.squarefeet %>sqft, Rent: <%= p.rent %>
-    <br><hr>
+    <% if p.available == true %>
+        <%= link_to p.address, property_path(p.id) %>
+        <br>
+        Rooms: <%= p.rooms %> , Bathrooms: <%= p.bathrooms %>
+        <br>
+        Size: <%= p.squarefeet %>sqft, Rent: <%= p.rent %>
+        <br><hr>
+    <% end %>
 <% end %>
 <br />
 <%= button_to "Return to Dashboard", user_root_path, method: "get" %>

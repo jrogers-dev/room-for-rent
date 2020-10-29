@@ -1,6 +1,6 @@
 <h2>Your Message</h2>
 <hr>
-<h4>From: <%= User.find(@message.sender_id).name %></h4>
+<h4>From: <%= User.find(@message.sender_id).email %></h4>
 <p><%= @message.message_content %></p>
 <% if @message.application %>
     <!--<%= link_to "Approve Application", property_path(@message.property_id, property: {tenant_id: 12 }), method: "put" %>-->
@@ -9,6 +9,7 @@
 
         <div class="field">
             <%= f.hidden_field :tenant_id, value: @message.sender_id %>
+            <%= f.hidden_field :available, value: false %>
         </div>
 
         <div class="actions">
