@@ -40,5 +40,5 @@ class User < ApplicationRecord
         user
     end
 
-    scope :magnate, -> { User.all.sort { |a, b| a.owned_properties.count <=> b.owned_properties.count }.last }
+    scope :magnate, -> { User.left_joins(:owned_properties).group(:id).order("COUNT(properties.landlord_id) DESC").first }
 end
