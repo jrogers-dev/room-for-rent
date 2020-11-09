@@ -2,3 +2,7 @@
 
 <h3><font color="green"><%= @magnate.name %></font><h3>
 <h5>They currently own <%= @magnate.owned_properties.count %> properties!</h5>
+
+<br />
+<%= button_to "Return to Dashboard", user_root_path, method: "get" %>
+<%= button_to "Logout", destroy_user_session_path, method: "delete" %>

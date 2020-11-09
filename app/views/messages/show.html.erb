@@ -17,7 +17,18 @@
         </div>
     <% end %>
 <% end %>
+<br />
+
+<%= link_to "Reply", { 
+    controller: "messages", 
+    action: "new", 
+    user_id: current_user.id, 
+    recipient_id: @message.sender_id, 
+    property_id: @property.id, 
+    application: false 
+}, method: "get"%>
+
 <hr>
 <br />
-<%= button_to "Return to Dashboard", user_root_path, method: "get" %>
+<%= button_to "Return to Inbox", user_messages_path, method: "get" %>
 <%= button_to "Logout", destroy_user_session_path, method: "delete" %>
