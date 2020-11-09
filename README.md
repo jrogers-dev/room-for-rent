@@ -1,24 +1,12 @@
-# README
+# Welcome to Room for Rent
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+What's Room for Rent?
 
-Things you may want to cover:
+* Room for Rent is a marketplace for people to list their properties for others to rent!
 
-* Ruby version
+* It utilizes Ruby as the main language, Rails for for its web framework, and Devise for authentication.
 
-* System dependencies
+* Is visually bare-bones.
 
-* Configuration
+* Was constructed originally as a school project!
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
